@@ -1,9 +1,6 @@
-tensorflow==2.15.0
-numpy 
-pandas
-scikit-learn
-matplotlib
-seaborn
-streamlit
-scikeras
+tensorflow>=2.15
 nltk
+numpy
+pandas
+matplotlib
+streamlit

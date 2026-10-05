@@ -1,0 +1,100 @@
+{
+  "selected_model": "GRU",
+  "selection_criterion": "lowest validation loss",
+  "seed": 42,
+  "smoke_test": false,
+  "data": {
+    "files": [
+      "shakespeare-hamlet.txt",
+      "shakespeare-macbeth.txt",
+      "shakespeare-caesar.txt"
+    ],
+    "total_lines": 8530,
+    "total_tokens": 63349,
+    "unique_words": 7565,
+    "words_seen_once": 4218,
+    "line_len_mean": 7.426611957796014,
+    "line_len_median": 8.0,
+    "line_len_p95": 10.0,
+    "line_len_max": 14,
+    "split_lines": {
+      "train": 6824,
+      "val": 853,
+      "test": 853
+    },
+    "sequences": {
+      "train": 40174,
+      "val": 4929,
+      "test": 4801
+    },
+    "oov_token_share": {
+      "train": 0.07593910636615263,
+      "val": 0.11023133053873622,
+      "test": 0.1140960809102402
+    }
+  },
+  "vocab_size": 2872,
+  "min_word_count": 2,
+  "max_sequence_len": 10,
+  "input_len": 9,
+  "bigram_lambda": 0.4,
+  "results": {
+    "Unigram baseline": {
+      "test_top1_accuracy": 0.03353468027494272,
+      "test_top5_accuracy": 0.12872318267027702,
+      "test_perplexity": 454.40624517652424
+    },
+    "Bigram baseline": {
+      "test_top1_accuracy": 0.0939387627577588,
+      "test_top5_accuracy": 0.2389085607165174,
+      "test_perplexity": 284.2576859469141
+    },
+    "LSTM": {
+      "test_top1_accuracy": 0.08310768753290176,
+      "test_top5_accuracy": 0.22266194224357605,
+      "test_perplexity": 274.40456155045274,
+      "params": 828272,
+      "train_time_s": 57.56022834777832,
+      "epochs_run": 15,
+      "best_epoch": 12
+    },
+    "GRU": {
+      "test_top1_accuracy": 0.09289731085300446,
+      "test_top5_accuracy": 0.2389085590839386,
+      "test_perplexity": 259.7706676638208,
+      "params": 766272,
+      "train_time_s": 45.466976165771484,
+      "epochs_run": 13,
+      "best_epoch": 10
+    }
+  },
+  "training": {
+    "LSTM": {
+      "epochs_run": 15,
+      "best_epoch": 12,
+      "stopped_early": true,
+      "best_val_loss": 5.599802494049072,
+      "params": 828272,
+      "train_time_s": 57.56022834777832
+    },
+    "GRU": {
+      "epochs_run": 13,
+      "best_epoch": 10,
+      "stopped_early": true,
+      "best_val_loss": 5.551586627960205,
+      "params": 766272,
+      "train_time_s": 45.466976165771484
+    }
+  },
+  "config": {
+    "embed_dim": 100,
+    "rnn_units": [
+      150,
+      100
+    ],
+    "dropout": 0.3,
+    "batch_size": 128,
+    "max_epochs": 50,
+    "patience": 3
+  }
+}
